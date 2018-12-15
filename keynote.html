@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://twemoji.maxcdn.com/2/twemoji.min.js?11.0"></script>
+  <meta name="generator" content="pandoc">
+  <title>An async story</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="template/css/reveal.css">
+  <style type="text/css">
+    code{white-space: pre;}
+
+    
+          a.sourceLine { display: inline-block; line-height: 1.25; }
+      a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+      a.sourceLine:empty { height: 1.2em; position: absolute; }
+      .sourceCode { overflow: visible; }
+      code.sourceCode { white-space: pre; position: relative; }
+      div.sourceCode { margin: 1em 0; }
+      pre.sourceCode { margin: 0; }
+      @media screen {
+      div.sourceCode { overflow: auto; }
+      }
+      @media print {
+      code.sourceCode { white-space: pre-wrap; }
+      a.sourceLine { text-indent: -1em; padding-left: 1em; }
+      }
+      pre.numberSource a.sourceLine
+        { position: relative; }
+      pre.numberSource a.sourceLine:empty
+        { position: absolute; }
+      pre.numberSource a.sourceLine::before
+        { content: attr(data-line-number);
+          position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+          border: none; pointer-events: all;
+          -webkit-touch-callout: none; -webkit-user-select: none;
+          -khtml-user-select: none; -moz-user-select: none;
+          -ms-user-select: none; user-select: none;
+          padding: 0 4px; width: 4em;
+          color: #aaaaaa;
+        }
+      pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+      div.sourceCode
+        {  }
+      @media screen {
+      a.sourceLine::before { text-decoration: underline; }
+      }
+      code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+      code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+      code span.at { color: #7d9029; } /* Attribute */
+      code span.bn { color: #40a070; } /* BaseN */
+      code span.bu { } /* BuiltIn */
+      code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+      code span.ch { color: #4070a0; } /* Char */
+      code span.cn { color: #880000; } /* Constant */
+      code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+      code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+      code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+      code span.dt { color: #902000; } /* DataType */
+      code span.dv { color: #40a070; } /* DecVal */
+      code span.er { color: #ff0000; font-weight: bold; } /* Error */
+      code span.ex { } /* Extension */
+      code span.fl { color: #40a070; } /* Float */
+      code span.fu { color: #06287e; } /* Function */
+      code span.im { } /* Import */
+      code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+      code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+      code span.op { color: #666666; } /* Operator */
+      code span.ot { color: #007020; } /* Other */
+      code span.pp { color: #bc7a00; } /* Preprocessor */
+      code span.sc { color: #4070a0; } /* SpecialChar */
+      code span.ss { color: #bb6688; } /* SpecialString */
+      code span.st { color: #4070a0; } /* String */
+      code span.va { color: #19177c; } /* Variable */
+      code span.vs { color: #4070a0; } /* VerbatimString */
+      code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    
+    .reveal a[href^="#"]:visited {
+      color: #8ea9d2;
+    }
+  </style>
+
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = "template/css/theme/moon.css";
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+
+  <link rel="stylesheet" href="template/css/theme/moon.css" id="theme">
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'template/css/print/pdf.css' : 'template/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="template/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+  <h1 class="title">An async story</h1>
+</section>
+
+<section class="slide level2">
+
+<p>Привет RustRush 👋</p>
+</section>
+<section class="slide level2">
+
+</section>
+<section id="whoami" class="slide level2">
+<h2><code>$ whoami</code></h2>
+<p><br /></p>
+<p><br /></p>
+</section>
+<section id="katharina-fey" class="slide level2">
+<h2>Katharina Fey</h2>
+<p><code>@spacekookie</code></p>
+<p>Software Engineer at Ferrous Systems</p>
+</section>
+<section id="how-to-complain-at-me" class="slide level2">
+<h2>How to complain at me</h2>
+<p><code>kookie@spacekookie.de</code></p>
+<p><code>@spacekookie</code> on twitter</p>
+</section>
+<section class="slide level2">
+
+<p>I make some attrocious puns</p>
+</section>
+<section class="slide level2">
+
+<p><img src="images/twitter_a.png" height=275px/></p>
+<p><img src="images/twitter_b.png" height=250px/></p>
+</section>
+<section class="slide level2">
+
+</section>
+<section class="slide level2">
+
+<p>An <u>async</u> story</p>
+</section>
+<section class="slide level2">
+
+<p>An async <u>story</u></p>
+</section>
+<section id="rust-is-successful" class="slide level2">
+<h2>Rust is successful</h2>
+</section>
+<section class="slide level2">
+
+<p>How do you define success?</p>
+</section>
+<section class="slide level2">
+
+<p>Rust is a young language</p>
+<ul>
+<li class="fragment">Development started in 2010</li>
+<li class="fragment">Stable since 2015</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Rust communities are young</p>
+</section>
+<section class="slide level2">
+
+<p>Yet, we have seen some amazing work from them</p>
+</section>
+<section class="slide level2">
+
+<p>Lots of companies are adopting Rust</p>
+<p>Finding Rust jobs is easier as ever</p>
+</section>
+<section id="momentum" class="slide level2">
+<h2>Momentum</h2>
+</section>
+<section class="slide level2">
+
+<p><img src="images/momentum.jpg" /></p>
+</section>
+<section class="slide level2">
+
+<p>Every 6 weeks a new Rust.</p>
+<p>Contribution pipeline is short</p>
+</section>
+<section class="slide level2">
+
+<blockquote>
+<p>[Rust] is fundamentally about empowerment: no matter what kind of code you are writing now, Rust empowers you to reach farther, to program with confidence in a wider variety of domains than you did before.</p>
+</blockquote>
+<p><small>– Rust book, foreword</small></p>
+</section>
+<section id="is-the-rust-community-unique" class="slide level2">
+<h2>Is the Rust community unique?</h2>
+</section>
+<section id="no" class="slide level2">
+<h2>No</h2>
+</section>
+<section class="slide level2">
+
+<p>What is unique is how the language and tooling support the community in ways that other language ecosystems do not!</p>
+</section>
+<section id="rust-is-going-places" class="slide level2">
+<h2>Rust is going places</h2>
+<ul>
+<li>Networking services</li>
+<li>Embedded</li>
+<li>Browser front-ends</li>
+<li>General applications</li>
+<li>Games</li>
+<li>Spaaaaaaaaaaaaaace!</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><img src="images/space.gif" width=800px /></p>
+</section>
+<section class="slide level2">
+
+<p>A community of developers empowered by their tools and each other</p>
+</section>
+<section class="slide level2">
+
+<p>In my opinion: <u>momentum</u> is <u>success</u></p>
+<p>Bringing new people to new domains</p>
+</section>
+<section class="slide level2">
+
+<p>People who are curious and adventerous.</p>
+<div class="fragment" data-fragment-index="3">
+<p>Supported by their tools and the community,</p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p>who are encouraged to build exciting things!</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>This isn’t easy!</p>
+<p>This isn’t perfect!</p>
+</section>
+<section class="slide level2">
+
+<p><img src="images/rustconf-keynote.png" width=500px /></p>
+<ul>
+<li>Problems scaling the descision process.</li>
+<li>Problems bringing in new people</li>
+</ul>
+</section>
+<section class="slide level2">
+
+</section>
+<section id="rust-2018" class="slide level2">
+<h2>Rust 2018</h2>
+</section>
+<section class="slide level2">
+
+<p>Who here <em>doesn’t</em> know what Rust 2018 is?</p>
+</section>
+<section id="rust-2018-1" class="slide level2">
+<h2>Rust 2018</h2>
+<ul>
+<li>Accumulation of changes since 2015</li>
+<li>Backwards compatible with Rust 2015, while still having some breaking changes</li>
+<li>Focus on developer ergonomics and productivity</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>This is done via the edition flag</p>
+<pre class="toml"><code>[package]
+name = &quot;foobar&quot;
+version = &quot;1.0.0&quot;
+edition = &quot;2018&quot;</code></pre>
+<p><code>2015</code> is default to preserve backwards compatibility</p>
+</section>
+<section id="the-working-groups" class="slide level2">
+<h2>The working groups</h2>
+<ul>
+<li class="fragment">Commandline Applications</li>
+<li class="fragment">Embedded</li>
+<li class="fragment">WASM</li>
+<li class="fragment">Networking</li>
+</ul>
+</section>
+<section id="the-idea" class="slide level2">
+<h2>The idea</h2>
+<blockquote>
+<p>The goal of these groups is to focus on the end-to-end user experience of using Rust in each domain.</p>
+</blockquote>
+<p><small>– Announcing the 2018 Domain Working Groups</small></p>
+</section>
+<section id="the-governance" class="slide level2">
+<h2>The Governance</h2>
+<ul>
+<li class="fragment">Group leaders were assigned at first</li>
+<li class="fragment">People joined through collaboration</li>
+<li class="fragment">The longer time went on, the less hirarchical the group structures became</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>This meant a low barrier-to-entry for newcomers</p>
+</section>
+<section class="slide level2">
+
+<p><img src="images/website-wg.png" /></p>
+</section>
+<section class="slide level2">
+
+</section>
+<section class="slide level2">
+
+<blockquote>
+<p>[…] focusing on the end-to-end experience for both sync and async networking code</p>
+</blockquote>
+</section>
+<section id="what-is-async-io" class="slide level2">
+<h2>What is async I/O</h2>
+</section>
+<section class="slide level2">
+
+<p>Using available resources the most efficiently…</p>
+</section>
+<section class="slide level2">
+
+<p><img src="images/amd-die-shot.jpg" /></p>
+</section>
+<section class="slide level2">
+
+<p>Doing things while waiting for long-running operations to finish…</p>
+</section>
+<section class="slide level2">
+
+<p><img src="images/concurrency.gif" width=800px /></p>
+</section>
+<section id="look-mum-no-threads" class="slide level2">
+<h2>Look mum, no threads!</h2>
+<p><img src="images/threads.gif" width=600px /></p>
+</section>
+<section class="slide level2">
+
+<p><img src="images/async-io.png" width=750px /></p>
+</section>
+<section id="why" class="slide level2">
+<h2>Why?</h2>
+</section>
+<section class="slide level2">
+
+<p><img data-src="images/apache-vs-nginx.png" /></p>
+</section>
+<section id="futures" class="slide level2">
+<h2>Futures</h2>
+</section>
+<section class="slide level2">
+
+<p><img data-src="images/back_to_the_future.gif" /></p>
+</section>
+<section class="slide level2">
+
+<p><strong><code>Future</code> = calculation that hasn’t happened yet</strong></p>
+<ul>
+<li class="fragment">Is <em>probably</em> gonna happen at some point</li>
+<li class="fragment">Just keep asking</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><strong>Event Loop = runtime for <code>Future</code>s</strong></p>
+<ul>
+<li>Keeps polling <code>Future</code> until it is ready</li>
+<li>Runs your code whenever it can be run</li>
+</ul>
+</section>
+<section id="this-is-a-talk-about-rust" class="slide level2">
+<h2>This is a talk about Rust</h2>
+</section>
+<section id="its-state-machines-all-the-way-down" class="slide level2">
+<h2>It’s state machines all the way down</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co">// ... define `stdin` and `stdout`</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">let</span> reader = BufReader::new(stdin);</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">let</span> buffer = <span class="dt">Vec</span>::new();</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw">let</span> fut = io::read_until(reader, b<span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>, buffer)</a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">      .and_then(<span class="kw">move</span> |(stdin, buffer)| <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-7" data-line-number="7">          stdout.write_all(&amp;buffer).map_err(|e| <span class="pp">panic!</span>(e))</a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">      <span class="op">}</span>).map_err(|e| <span class="pp">panic!</span>(e));</a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">// Actually run _here_</span></a>
+<a class="sourceLine" id="cb2-11" data-line-number="11">tokio::run(fut);</a></code></pre></div>
+</section>
+<section class="slide level2">
+
+</section>
+<section id="lets-talk-about-some-history" class="slide level2">
+<h2>Let’s talk about some history</h2>
+</section>
+<section id="late-2013" class="slide level2">
+<h2>Late 2013</h2>
+</section>
+<section class="slide level2">
+
+<h3 id="libgreen">libgreen</h3>
+<p><img data-src="images/libgreen_add.png" /></p>
+<ul>
+<li>Rust had green threading support</li>
+<li>Enabled non-blocking IO</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Included a runtime in <code>stdlib</code></p>
+<ul>
+<li>This came with a lot of problems</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Rust wanted to go in a different direction</p>
+</section>
+<section id="late-2014" class="slide level2">
+<h2>Late 2014</h2>
+</section>
+<section class="slide level2">
+
+<p><strong><code>libgreen</code> is dead, long live <code>libgreen</code></strong></p>
+<p><img data-src="images/libgreen_remove.png" /></p>
+</section>
+<section id="mio-rs" class="slide level2">
+<h2>mio-rs</h2>
+<p>“Metal I/O” 🤘</p>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Light, non-blocking IO library</li>
+<li>Abstracts async over different platforms</li>
+<li>Eventually developed an ecosystem around it</li>
+</ul>
+</section>
+<section id="mid-2016" class="slide level2">
+<h2>Mid 2016</h2>
+</section>
+<section class="slide level2">
+
+<p><img src="images/futures-rs-logo.svg" /></p>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><em>zero cost abstraction</em> for futures</li>
+<li>Building async state-machines</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="tokio-core"><code>tokio-core</code></h3>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Wraps around <code>mio.rs</code> and <code>futures.rs</code></li>
+<li>Event reactor</li>
+</ul>
+</section>
+<section id="fast-foward-to-2018" class="slide level2">
+<h2>Fast foward to 2018</h2>
+</section>
+<section id="so-whats-the-problem" class="slide level2">
+<h2>So what’s the problem?</h2>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb3"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co">// ... define `stdin` and `stdout`</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">let</span> reader = BufReader::new(stdin);</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">let</span> buffer = <span class="dt">Vec</span>::new();</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="kw">let</span> fut = io::read_until(reader, b<span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>, buffer)</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">      .and_then(<span class="kw">move</span> |(stdin, buffer)| <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">          stdout.write_all(&amp;buffer).map_err(|e| <span class="pp">panic!</span>(e))</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8">      <span class="op">}</span>).map_err(|e| <span class="pp">panic!</span>(e));</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">// Actually run _here_</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">tokio::run(fut);</a></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb4"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">let</span> reader = BufReader::new(stdin);</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">let</span> <span class="kw">mut</span> buffer = <span class="dt">Vec</span>::new();</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">io::read_until(reader, b<span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">&#39;</span>, &amp;<span class="kw">mut</span> buffer)?;</a>
+<a class="sourceLine" id="cb4-5" data-line-number="5">stdout.write_all(&amp;buffer)?;</a></code></pre></div>
+</section>
+<section id="async-await" class="slide level2">
+<h2><code>async</code> &amp; <code>await</code></h2>
+</section>
+<section class="slide level2">
+
+<p>Write code that looks synchronous/ blocking.</p>
+<p>It actually does async under the hood!</p>
+</section>
+<section id="the-future-trait" class="slide level2">
+<h2>The Future trait</h2>
+</section>
+<section id="the-future-trait-1" class="slide level2">
+<h2>The Future trait</h2>
+<div class="sourceCode" id="cb5"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">enum</span> Poll&lt;T&gt; <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2">    Ready(T),</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    Pending</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="op">}</span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="kw">trait</span> Future <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7">    <span class="kw">type</span> Output;</a>
+<a class="sourceLine" id="cb5-8" data-line-number="8">    <span class="kw">fn</span> poll(<span class="kw">self</span>: Pin&lt;&amp;<span class="kw">mut</span> <span class="kw">Self</span>&gt;, lw: &amp;LocalWaker) </a>
+<a class="sourceLine" id="cb5-9" data-line-number="9">        -&gt; Poll&lt;<span class="kw">Self</span>::Output&gt;;</a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="op">}</span></a></code></pre></div>
+<div class="fragment" data-fragment-index="3">
+<p>Now provided by <code>libcore</code>/ <code>libstd</code></p>
+</div>
+</section>
+<section id="new-keywords-for-everybody" class="slide level2">
+<h2>New keywords for everybody</h2>
+<p><br /></p>
+<ul>
+<li><code>async</code> - marks a function as … async</li>
+<li><code>await</code> - waits for something async to happen</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb6"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb6-1" data-line-number="1">async <span class="kw">fn</span> read_and_print() -&gt; <span class="dt">Result</span>&lt;(), ::std::io::Error&gt; <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb6-3" data-line-number="3">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb6-4" data-line-number="4">    </a>
+<a class="sourceLine" id="cb6-5" data-line-number="5">    <span class="pp">await!</span>(io::read_until(reader, b<span class="ch">&#39;</span><span class="sc">\n</span><span class="ch">, &amp;mut buffer)?);</span></a>
+<a class="sourceLine" id="cb6-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7">    <span class="pp">await!</span>(stdout.write_all(&amp;buffer)?);</a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="op">}</span></a></code></pre></div>
+</section>
+<section class="slide level2">
+
+<div class="sourceCode" id="cb7"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">fn</span> read_and_print() </a>
+<a class="sourceLine" id="cb7-2" data-line-number="2">    -&gt; <span class="kw">impl</span> Future&lt;Output=<span class="dt">Result</span>&lt;(), ::std::io::Error&gt;&gt;</a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="op">{</span></a>
+<a class="sourceLine" id="cb7-4" data-line-number="4">    <span class="co">// ...</span></a>
+<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="op">}</span></a></code></pre></div>
+</section>
+<section id="romio" class="slide level2">
+<h2><code>romio</code></h2>
+<p>A minimal <code>tokio</code> fork that uses <code>async</code>/<code>await</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode rust"><code class="sourceCode rust"><a class="sourceLine" id="cb8-1" data-line-number="1">async <span class="kw">fn</span> say_hello(<span class="kw">mut</span> s: TcpStream) <span class="op">{</span> <span class="co">/* ... */</span> <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb8-3" data-line-number="3">async <span class="kw">fn</span> listen() -&gt; <span class="dt">Result</span>&lt;(), ::std::io::Error&gt;  <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-4" data-line-number="4">    <span class="kw">let</span> socket_addr = <span class="st">&quot;127.0.0.1:80&quot;</span>.parse()?;</a>
+<a class="sourceLine" id="cb8-5" data-line-number="5">    <span class="kw">let</span> <span class="kw">mut</span> listener = TcpListener::bind(&amp;socket_addr)?;</a>
+<a class="sourceLine" id="cb8-6" data-line-number="6">    <span class="kw">let</span> <span class="kw">mut</span> incoming = listener.incoming();</a>
+<a class="sourceLine" id="cb8-7" data-line-number="7">    </a>
+<a class="sourceLine" id="cb8-8" data-line-number="8">    <span class="co">// accept connections and process them serially</span></a>
+<a class="sourceLine" id="cb8-9" data-line-number="9">    <span class="kw">while</span> <span class="kw">let</span> <span class="cn">Some</span>(stream) = <span class="pp">await!</span>(incoming.next()) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-10" data-line-number="10">        <span class="pp">await!</span>(say_hello(stream?));</a>
+<a class="sourceLine" id="cb8-11" data-line-number="11">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb8-13" data-line-number="13">    <span class="cn">Ok</span>(())</a>
+<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="op">}</span></a></code></pre></div>
+</section>
+<section id="can-i-use-this" class="slide level2">
+<h2>Can I use this?</h2>
+</section>
+<section id="yes" class="slide level2">
+<h2>Yes!</h2>
+<p><small>(on nightly)</small></p>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>RFC for async/await syntax</li>
+<li><code>Future</code> trait now in <code>libcore</code>/ <code>libstd</code></li>
+<li><code>futures-rs</code> updated to the new APIs</li>
+</ul>
+</section>
+<section id="networking-wg" class="slide level2">
+<h2>Networking WG</h2>
+</section>
+<section class="slide level2">
+
+<p>Writing networking code has many problem domains</p>
+</section>
+<section class="slide level2">
+
+<ul>
+<li class="fragment">Pure async/await implementation</li>
+<li class="fragment">“I just want to write a web-app”</li>
+<li class="fragment">Low-level embedded networking</li>
+</ul>
+</section>
+<section id="working-group-mitosis" class="slide level2">
+<h2>Working group mitosis</h2>
+<p><br /></p>
+<ul>
+<li class="fragment">net-async-wg</li>
+<li class="fragment">net-web-wg</li>
+<li class="fragment">net-embedded-wg</li>
+</ul>
+</section>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+</section>
+<section class="slide level2">
+
+<p><img src="images/circa-2018.png" /></p>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Open RFC to stabilise <code>Future</code> trait</li>
+<li>Working on the ecosystem &amp; libraries</li>
+</ul>
+</section>
+<section id="why-an-async-story" class="slide level2">
+<h2>Why “an async story” ?</h2>
+</section>
+<section class="slide level2">
+
+<p>Kate, what hell was your point?</p>
+</section>
+<section class="slide level2">
+
+<p><img src="images/good_question.gif" width=700px /></p>
+</section>
+<section id="rust-is-the-async-story" class="slide level2">
+<h2>Rust is the async story!</h2>
+</section>
+<section class="slide level2">
+
+<p><code>async</code> in Rust 2018 is still WIP.</p>
+<div class="fragment" data-fragment-index="2">
+<p>But it’s on a good track,</p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p>because it’s the community that’s driving development!</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Who makes Rust?</p>
+<div class="fragment" data-fragment-index="2">
+<p>All of you! All of us!</p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p>And the language is better off because of it.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>If you can remember one thing from this talk?</p>
+<div class="fragment" data-fragment-index="2">
+<p>Collaboration takes time.</p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p>But the result will be amazing!</p>
+</div>
+</section>
+<section class="slide level2">
+
+<p><em>thank you</em></p>
+</section>
+    </div>
+  </div>
+
+  <script src="template/lib/js/head.min.js"></script>
+  <script src="template/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display a presentation progress bar
+        progress: false,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Transition style
+        transition: 'fade', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'template/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'template/plugin/zoom-js/zoom.js', async: true },
+              { src: 'template/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>
