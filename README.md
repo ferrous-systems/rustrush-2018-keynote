@@ -6,8 +6,4 @@ titled "An async Story".
 To build these slides you need to have `pandoc` and `make` installed.
 The required template and all assets are included.
 
-Or you can simply go [here][rendered] for a rendered version.
-
-Recording: [tbd][recording]
-
-rendered: https://ferrous-systems.github.io/rustrush-2018-keynote/keynote.html
+Or you can simply go [here](https://ferrous-systems.github.io/rustrush-2018-keynote/keynote.html) for a rendered version.
